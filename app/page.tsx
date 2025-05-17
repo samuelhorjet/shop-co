@@ -93,7 +93,7 @@ export default function Home() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
             >
-              <h1 className="text-4xl md:text-6xl pt-20 font-bold mb-4">
+              <h1 className="text-4xl md:text-6xl pt-15 md:pt-20 font-bold mb-4">
                 FIND CLOTHES THAT MATCHES YOUR STYLE
               </h1>
               <p className="text-gray-600 mb-8 max-w-md">
