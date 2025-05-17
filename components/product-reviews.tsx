@@ -1,16 +1,20 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { motion } from "framer-motion"
-import { Star, MoreHorizontal } from "lucide-react"
+import { useState } from "react";
+import { motion } from "framer-motion";
+import { Star, MoreHorizontal } from "lucide-react";
 
 interface Review {
-  id: number
-  name: string
-  rating: number
-  verified: boolean
-  text: string
-  date: string
+  id: number;
+  name: string;
+  rating: number;
+  verified: boolean;
+  text: string;
+  date: string;
+}
+
+interface ProductReviewsProps {
+  productId: string;
 }
 
 const reviews: Review[] = [
@@ -62,21 +66,25 @@ const reviews: Review[] = [
     text: "I'm not just wearing a t-shirt; I'm wearing a piece of design philosophy. The intricate details and thoughtful layout of the design make this shirt a conversation starter.",
     date: "August 19, 2023",
   },
-]
+];
 
-export default function ProductReviews() {
-  const [sortBy, setSortBy] = useState("latest")
+export default function ProductReviews({ productId }: ProductReviewsProps) {
+  const [sortBy, setSortBy] = useState("latest");
 
   return (
     <div>
       <div className="flex justify-between items-center mb-6">
         <h2 className="text-xl font-bold">
-          All Reviews <span className="text-gray-500 font-normal">({reviews.length})</span>
+          All Reviews{" "}
+          <span className="text-gray-500 font-normal">({reviews.length})</span>
         </h2>
         <div className="flex items-center gap-4">
           <button className="p-2 rounded-full bg-gray-100">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M3 4H21V6H3V4ZM9 11H21V13H9V11ZM3 18H21V20H3V18Z" fill="currentColor" />
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path
+                d="M3 4H21V6H3V4ZM9 11H21V13H9V11ZM3 18H21V20H3V18Z"
+                fill="currentColor"
+              />
             </svg>
           </button>
           <div className="relative">
@@ -90,7 +98,7 @@ export default function ProductReviews() {
               <option value="lowest">Lowest Rating</option>
             </select>
             <div className="absolute right-3 top-1/2 transform -translate-y-1/2 pointer-events-none">
-              <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
                 <path
                   d="M2.5 4L6 7.5L9.5 4"
                   stroke="currentColor"
@@ -101,7 +109,9 @@ export default function ProductReviews() {
               </svg>
             </div>
           </div>
-          <button className="bg-black text-white px-6 py-2 rounded-full text-sm font-medium">Write a Review</button>
+          <button className="bg-black text-white px-6 py-2 rounded-full text-sm font-medium">
+            Write a Review
+          </button>
         </div>
       </div>
 
@@ -118,8 +128,8 @@ export default function ProductReviews() {
               <div>
                 <div className="flex mb-1">
                   {Array.from({ length: 5 }).map((_, i) => {
-                    const isHalf = i + 0.5 === review.rating
-                    const isFilled = i < review.rating
+                    const isHalf = i + 0.5 === review.rating;
+                    const isFilled = i < review.rating;
 
                     return (
                       <Star
@@ -128,18 +138,23 @@ export default function ProductReviews() {
                           isFilled
                             ? "fill-current text-yellow-400"
                             : isHalf
-                              ? "fill-current text-yellow-400"
-                              : "text-gray-300"
+                            ? "fill-current text-yellow-400"
+                            : "text-gray-300"
                         }`}
                       />
-                    )
+                    );
                   })}
                 </div>
                 <div className="flex items-center">
                   <h3 className="font-medium">{review.name}</h3>
                   {review.verified && (
                     <span className="ml-2 text-green-600">
-                      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 16 16"
+                        fill="none"
+                      >
                         <path
                           d="M8 0C3.6 0 0 3.6 0 8C0 12.4 3.6 16 8 16C12.4 16 16 12.4 16 8C16 3.6 12.4 0 8 0ZM7 11.4L3.6 8L5 6.6L7 8.6L11 4.6L12.4 6L7 11.4Z"
                           fill="currentColor"
@@ -160,5 +175,5 @@ export default function ProductReviews() {
         ))}
       </div>
     </div>
-  )
+  );
 }
