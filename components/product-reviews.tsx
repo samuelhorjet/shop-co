@@ -64,7 +64,7 @@ const reviews: Review[] = [
   },
 ]
 
-export default function ProductReviews({ productId }: { productId: string }) {
+export default function ProductReviews() {
   const [sortBy, setSortBy] = useState("latest")
 
   return (

@@ -5,10 +5,11 @@ import { motion } from "framer-motion"
 import { SlidersHorizontal } from "lucide-react"
 import { products } from "../../lib/products"
 import ProductCard from "../../components/product-card"
+import Link from "next/link"
 
 export default function ShopPage() {
   const [selectedType, setSelectedType] = useState<string[]>([])
-  const [priceRange, setPriceRange] = useState<[number, number]>([0, 300])
+  const [priceRange] = useState<[number, number]>([0, 300])
   const [selectedColors, setSelectedColors] = useState<string[]>([])
   const [selectedStyle, setSelectedStyle] = useState<string[]>([])
 
@@ -61,9 +62,9 @@ export default function ShopPage() {
         <nav className="text-sm text-gray-500 mb-4">
           <ol className="flex items-center space-x-2">
             <li>
-              <a href="/" className="hover:text-black">
+              <Link href="/" className="hover:text-black">
                 Home
-              </a>
+              </Link>
             </li>
             <li>
               <span className="mx-2">/</span>

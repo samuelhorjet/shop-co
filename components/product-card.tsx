@@ -20,7 +20,7 @@ function isValidUrl(url?: string) {
 
 
 export default function ProductCard({ product }: ProductCardProps) {
-  const { id, name, price, originalPrice, rating, reviewCount, discount, image } = product
+  const { id, name, price, originalPrice, rating, discount, image } = product
 
   return (
     <motion.div
