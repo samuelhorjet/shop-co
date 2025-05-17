@@ -135,7 +135,7 @@ export default function Home() {
                 alt="Fashion models wearing Shop.co clothing"
                 width={430}
                 height={430}
-                className="ml-20"
+                className="ml-0 md:ml-20"
               />
               <motion.div
                 className="absolute -top-4 -right-4 text-4xl"
