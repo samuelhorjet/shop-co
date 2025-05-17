@@ -6,12 +6,14 @@ interface Params {
 
 interface PageProps {
   params: Params;
+  searchParams: Record<string, string | string[] | undefined>;
 }
 
-export default function Product({ params }: PageProps) {
+export default async function Product({ params }: PageProps) {
   const { id } = params;
 
-  // No async here since you just pass the id down
+  // Since we're using the async keyword, this function now returns a Promise
+  // which should satisfy the type constraint
 
   return <ProductPageClient productId={id} />;
 }
