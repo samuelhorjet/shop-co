@@ -1,11 +1,17 @@
 import ProductPageClient from "./ProductPageClient";
 
-interface PageProps {
-  params: { id: string };
+interface Params {
+  id: string;
 }
 
-export default function ProductPage({ params }: PageProps) {
+interface PageProps {
+  params: Params;
+}
+
+export default function Product({ params }: PageProps) {
   const { id } = params;
+
+  // No async here since you just pass the id down
 
   return <ProductPageClient productId={id} />;
 }
